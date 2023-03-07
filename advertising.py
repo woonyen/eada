@@ -28,8 +28,8 @@ st.write(df)
 data = pd.read_csv('Advertising.csv')
 data = data.drop(data.columns[0], axis=1)
 
-X = data.drop('Sales', axis=1)
-y = data[['Sales']]
+X = data[['TV','Radio','Newspaper']]
+y = data['Sales']
 
 regr = linear_model.LinearRegression()
 regr.fit(X, y)
@@ -37,4 +37,4 @@ regr.fit(X, y)
 prediction = regr.predict(df)
 
 st.subheader('Prediction')
-st.write(prediction)
+st.write(prediction[0])
